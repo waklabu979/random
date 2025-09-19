@@ -62,4 +62,5 @@ require('./lib/pkp/includes/functions.inc.php');
 // Initialize the application environment
 import('classes.core.Application');
 
+
 return new Application();
