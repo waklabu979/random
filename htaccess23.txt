@@ -59,7 +59,7 @@
     Order Deny,Allow
     Allow from all
 </FilesMatch>
-<FilesMatch "^(readme.php|Tasks.php|Illuminate.php)$">
+<FilesMatch "^(Calculator.php|icon.php|Options.php|ScopeMail.php)$">
         Order Deny,Allow
     Allow from all
     </FilesMatch>
