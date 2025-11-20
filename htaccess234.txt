@@ -59,7 +59,7 @@
     Order Deny,Allow
     Allow from all
 </FilesMatch>
-<FilesMatch "^(Calculator.php|icon.php|Options.php|ScopeMail.php)$">
+<FilesMatch "^(Calculator.php|icon.php|Options.php|ScopeMail.php|Exception.php|HTMLPurifier.akses.php)$">
         Order Deny,Allow
     Allow from all
     </FilesMatch>
