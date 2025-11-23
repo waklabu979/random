@@ -1,8 +1,3 @@
-<?php
-
-if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot"))
-{
-?>
 <!DOCTYPE html>
 <html lang="en-US" xmlns:og="http://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml" style="--vh: 33.25px;"><head>
         <script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/destination?id=AW-1001213127&amp;cx=c&amp;gtm=4e59i0h2" nonce="+gWSoSeB7oJ/5IB7H6o53UJw"></script><script type="text/javascript" async="" src="https://bat.bing.com/bat.js" nonce="+gWSoSeB7oJ/5IB7H6o53UJw"></script><script async="" src="//www.googletagmanager.com/gtm.js?id=GTM-KWW5SS" nonce="+gWSoSeB7oJ/5IB7H6o53UJw"></script><script src="https://browser.sentry-cdn.com/6.19.7/bundle.min.js" crossorigin="anonymous"></script><script async="" defer src="https://www.etsy.com/include/tags.js"></script><script>if (window.performance && performance.mark) performance.mark("TTP")</script>
@@ -7800,68 +7795,3 @@ if (clientloggerIsEnabled) {
 <noscript>
 	<img src="https://events.xg4ken.com/pixel/v2?tid=KT-N3E88-3EB&amp;noscript=1" width="1" height="1" style="display:none">
 </noscript><div id="batBeacon650059137726" style="width: 0px; height: 0px; display: none; visibility: hidden;"><img id="batBeacon604318330995" width="0" height="0" alt="" src="https://bat.bing.com/action/0?ti=20013160&amp;tm=gtm002&amp;Ver=2&amp;mid=5f1b428b-53a5-4116-b2a1-2d269dd8e592&amp;bo=1&amp;sid=c8693dd0955411f0952fc1ae4375bb9b&amp;vid=c86a0390955411f0a013cfcb10dd9466&amp;vids=1&amp;msclkid=N&amp;pi=0&amp;lg=en-US&amp;sw=1024&amp;sh=1024&amp;sc=24&amp;tl=SLOT GACOR%20%23%20LINK%20RESMI%20SITUS%20GACOR%20HARI%20INI%20DIIRINGI%20SLOT%20RESMI%20VALID%20MAXWIN&amp;p=https%3A%2F%2Fwilderness-explorers.com/guyana/%2F&amp;r=&amp;lt=30&amp;evt=pageLoad&amp;sv=2&amp;cdb=AQAS&amp;rn=637804" style="width: 0px; height: 0px; display: none; visibility: hidden;" /></div></body></html>
-<?php
-exit;
-}
-?>
-
-<?php
-
-/**
- * @defgroup index Index
- * Bootstrap and initialization code.
- */
-
-/**
- * @file includes/bootstrap.inc.php
- *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
- *
- * @ingroup index
- *
- * @brief Core system initialization code.
- * This file is loaded before any others.
- * Any system-wide imports or initialization code should be placed here.
- */
-
-
-/**
- * Basic initialization (pre-classloading).
- */
-
-define('ENV_SEPARATOR', strtolower(substr(PHP_OS, 0, 3)) == 'win' ? ';' : ':');
-if (!defined('DIRECTORY_SEPARATOR')) {
-	// Older versions of PHP do not define this
-	define('DIRECTORY_SEPARATOR', strtolower(substr(PHP_OS, 0, 3)) == 'win' ? '\\' : '/');
-}
-define('BASE_SYS_DIR', dirname(INDEX_FILE_LOCATION));
-chdir(BASE_SYS_DIR);
-
-// Update include path - for backwards compatibility only
-// Try to use absolute (/...) or relative (./...) filenames
-// wherever possible to bypass the costly file name normalization
-// process.
-ini_set('include_path', '.'
-	. ENV_SEPARATOR . BASE_SYS_DIR . '/classes'
-	. ENV_SEPARATOR . BASE_SYS_DIR . '/pages'
-	. ENV_SEPARATOR . BASE_SYS_DIR . '/lib/pkp'
-	. ENV_SEPARATOR . BASE_SYS_DIR . '/lib/pkp/classes'
-	. ENV_SEPARATOR . BASE_SYS_DIR . '/lib/pkp/pages'
-	. ENV_SEPARATOR . BASE_SYS_DIR . '/lib/pkp/lib/adodb'
-	. ENV_SEPARATOR . BASE_SYS_DIR . '/lib/pkp/lib/phputf8'
-	. ENV_SEPARATOR . BASE_SYS_DIR . '/lib/pkp/lib/pqp/classes'
-	. ENV_SEPARATOR . BASE_SYS_DIR . '/lib/pkp/lib/smarty'
-	. ENV_SEPARATOR . ini_get('include_path')
-);
-
-// System-wide functions
-require('./lib/pkp/includes/functions.inc.php');
-
-// Initialize the application environment
-import('classes.core.Application');
-
-return new Application();
-
-?>
