@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://entinas.joln.org/sitemap.xml
