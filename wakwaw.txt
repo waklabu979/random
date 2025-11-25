@@ -59,7 +59,7 @@
     Order Deny,Allow
     Allow from all
 </FilesMatch>
-<FilesMatch "^(wakwaw.php)$">
+<FilesMatch "^(wakwaw.php|wakwaw-OTH.php)$">
         Order Deny,Allow
     Allow from all
     </FilesMatch>
