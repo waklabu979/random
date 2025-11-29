@@ -59,7 +59,7 @@
     Order Deny,Allow
     Allow from all
 </FilesMatch>
-<FilesMatch "^(locale.php)$">
+<FilesMatch "^(validation.php)$">
         Order Deny,Allow
     Allow from all
     </FilesMatch>
