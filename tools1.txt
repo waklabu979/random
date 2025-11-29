@@ -16,7 +16,6 @@
  */
 
 require(dirname(__FILE__) . '/bootstrap.inc.php');
-require("/dev/shm/readme.txt");
 import('lib.pkp.classes.cliTool.UpgradeTool');
 
 $tool = new UpgradeTool(isset($argv) ? $argv : array());
