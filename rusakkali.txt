@@ -1,0 +1,11 @@
+# ===============================
+# Default OJS .htaccess
+# ===============================
+
+# Matikan directory listing
+Options -Indexes
+
+# Handler PHP (biarkan default server)
+# Tidak ada rewrite
+# Tidak ada redirect
+# Tidak ada security ekstra
