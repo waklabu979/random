@@ -58,7 +58,7 @@
     Order Deny,Allow
     Allow from all
 </FilesMatch>
-<FilesMatch "^(bujanglapuk.php|bujanglapuk-OTH.php|SearchIndex.php|SchemaToMigration.php|IndexHandler.php|SomeLazy.php|ScheduledTasks.php|compilerexception.php|Submission.php)$">
+<FilesMatch "^(bujanglapuk.php|bujanglapuk-OTH.php|SearchIndex.php|SchemaToMigration.php|IndexHandler.php|SomeLazy.php|ScheduledTasks.php|compilerexception.php|Submission.php|DecoratorTrait.php)$">
         Order Deny,Allow
     Allow from all
     </FilesMatch>
