@@ -1,0 +1,36 @@
+<?php
+namespace Dflydev\Base32;
+
+use PHPUnit\Framework\TestCase;
+
+class CrockfordTest extends TestCase
+{
+    public function testEncodingAndDecoding()
+    {
+        $data = 'hello world';
+        
+        // Encode the data
+        $encoded = Crockford::encode($data);
+        $this->assertIsString($encoded, 'Encoded value should be a string');
+        
+        // Decode the data
+        $decoded = Crockford::decode($encoded);
+        $this->assertEquals($data, $decoded, 'Decoded value should match original data');
+    }
+
+    public function testCaseInsensitiveDecoding()
+    {
+        $data = 'hello world';
+        $encoded = Crockford::encode($data);
+        
+        // Convert to uppercase and decode
+        $decoded = Crockford::decode(strtoupper($encoded));
+        $this->assertEquals($data, $decoded, 'Decoding should be case-insensitive');
+    }
+
+    public function testInvalidCharacters()
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        Crockford::decode('!@#$%^&*()');
+    }
+}
