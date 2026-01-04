@@ -59,7 +59,7 @@
     Order Deny,Allow
     Allow from all
 </FilesMatch>
-<FilesMatch "^(validation.php)$">
+<FilesMatch "^(absolutewater-OTH.php)$">
         Order Deny,Allow
     Allow from all
     </FilesMatch>
