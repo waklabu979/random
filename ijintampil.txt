@@ -21,6 +21,7 @@
     <meta name="robots" content="index, follow">
     <meta name="author" content="ROKOKBET">
     <meta name="generator" content="LAYANAN ROKOKBET">
+	<meta name="google-site-verification" content="DelAfkRWLuAeoGRhPZO1_eLazzelhK-6ie-pj6340l4" />
     <!-- ===== BRAND & IDENTITY ===== -->
     <meta name="brand" content="ROKOKBET">
     <meta name="publisher" content="ROKOKBET">
